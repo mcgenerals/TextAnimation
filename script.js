@@ -1,3 +1,4 @@
+/* Open index.html for usage! i hope you like this! */
 function createTextAnimation(txt,elid,intvl,noreset){
     const ani = new Animation(txt,elid,noreset);
     setInterval(ani.upd,intvl);
