@@ -1,5 +1,5 @@
 function createTextAnimation(txt,elid,intvl,noreset){
-    const ani = new Animation(txt,elid);
+    const ani = new Animation(txt,elid,noreset);
     setInterval(ani.upd,intvl);
 }
 
@@ -16,16 +16,20 @@ class Animation {
     }
 
     upd(){
-        if(this.cur==this.text){
-            this.cur = "";
-            this.i = 0;
-            if(this.noreset){ this.ended = true; }
-            document.getElementById(this.elementId).innerHTML = "";
-            return;
-        }
         if( this.ended ){
             return;
         }
+        if(this.cur==this.text){
+            this.cur = "";
+            this.i = 0;
+            if(this.noreset){
+                this.ended = true; 
+            }else{
+                document.getElementById(this.elementId).innerHTML = "";
+            }
+            return;
+        }
+
         this.spl = this.text.split("");
         this.cur += this.spl[this.i];
         this.i++;
